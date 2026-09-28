@@ -10,6 +10,9 @@ export class invite extends plugin {
   }
 
   async accept() {
+    // 兜底：SnowLuma/NapCat 会把"成员邀请他人进群待审核"也复用成 invite 事件上报，
+    // 邀请人是主人时会误触发 isMaster 自动同意，把被邀请的第三人拉进群
+    if (this.e.invited_id && this.e.invited_id != this.e.self_id) return
     if (!this.e.isMaster && cfg.other.autoGroup !== 1) {
       logger.mark(`[邀请加群]：${this.e.group_name}：${this.e.group_id}`)
       return

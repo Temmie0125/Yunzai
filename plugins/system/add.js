@@ -11,7 +11,7 @@ export class add extends plugin {
       name: "添加消息",
       dsc: "添加消息",
       event: "message",
-      priority: Infinity,
+      priority: 114514,
       rule: [
         {
           reg: "^#(全局)?添加",
@@ -47,6 +47,7 @@ export class add extends plugin {
 
   /** #添加 */
   async add() {
+    return false;
     this.isGlobal = Boolean(this.e.msg.match(/^#全局/))
     await this.getGroupId()
 
@@ -273,6 +274,7 @@ export class add extends plugin {
   }
 
   async del() {
+    return false;
     this.isGlobal = this.e.msg.includes("全局")
     await this.getGroupId()
     if (!(this.group_id && this.checkAuth())) return false

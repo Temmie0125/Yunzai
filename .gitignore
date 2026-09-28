@@ -11,3 +11,6 @@
 /dump.rdb
 /pnpm-lock.yaml
 /*.sh
+# 忽略Agent目录和一些资源目录
+.zcodeignore
+phi-service/
