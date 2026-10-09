@@ -2,6 +2,7 @@ packages:
   - 'plugins/**'
 
 patchedDependencies:
+  '@windtrace/qq-group-bot': patches/@windtrace__qq-group-bot.patch
   body-parser@2: lib/modules/body-parser.patch
   compression: lib/modules/compression.patch
   log4js: lib/modules/log4js.patch
@@ -23,3 +24,5 @@ onlyBuiltDependencies:
   - puppeteer
   - sqlite3
   - sharp
+minimumReleaseAgeExclude:
+  - '@windtrace/qq-group-bot@1.0.39'
